@@ -1,11 +1,7 @@
-SRC     =       ft_printf.c
-
+SRC = ft_printf.c ft_printf_funcs.c ft_printf_funcs2.c
 CFLAGS = -Wall -Wextra -Werror
-
 OBJECTS = $(SRC:.c=.o)
-
 HEADER = ft_printf.h
-
 NAME = libftprintf.a
 CC = gcc
 RM = rm -f
@@ -14,19 +10,19 @@ AR = ar rcs
 all: $(NAME)
 
 clean:
-                $(RM) $(OBJECTS)
+	$(RM) $(OBJECTS)
 
 rmout:
-                $(RM) a.out
+	$(RM) a.out
 
 %.o: %.c $(HEADER)
-                $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-                $(AR) $(NAME) $(OBJECTS)
+	$(AR) $(NAME) $(OBJECTS)
 
 fclean: clean
-                $(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
